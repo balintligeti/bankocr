@@ -46,7 +46,8 @@ export default function AccNums(props) {
         let inputTextNumber = ""; 
         
         for (let i = 0; i < lenOfStr; i += 3) {
-           inputTextNumber += Object.keys(codes).find(key => codes[key] === 
+           inputTextNumber += Object.keys(codes).find(key => 
+             codes[key] === 
             list[0][i] + list[0][i+1] + list[0][i+2] +
             list[1][i] + list[1][i+1] + list[1][i+2] +
             list[2][i] + list[2][i+1] + list[2][i+2]);
