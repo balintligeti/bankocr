@@ -52,8 +52,8 @@ export default function AccNums(props) {
             list[1][i] + list[1][i+1] + list[1][i+2] +
             list[2][i] + list[2][i+1] + list[2][i+2]);
         }
-
-        return inputTextNumber;
+        const inputTextNumWithQuestioner = inputTextNumber.split("undefined").join("?");
+        return inputTextNumWithQuestioner;
         
       }
 
