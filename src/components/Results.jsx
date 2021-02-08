@@ -1,14 +1,16 @@
-import React from 'react'
 import { ResultsContext } from './contexts/ResultsContext'
-import {useContext, useEffect} from "react";
+import {React, useContext} from "react";
+import { Link } from "react-router-dom";
 
 
 export default function Results(props) {
-    const context=useContext(ResultsContext);
+    const context = useContext(ResultsContext);
+
 
     return (
         <div>
-            <p>{context.savedResults.length}</p>
+            {context.results.length > 0 ? <p>{context.results.map((item, index) => (<p key={index}>{item}</p>))}</p> : <p>Default Markup</p>}
+            <Link to="/">Results</Link>
         </div>
     )
 }

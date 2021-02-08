@@ -11,10 +11,11 @@ import Results from './components/Results';
 
 function App() {
 
-  const [savedResults,setSavedResults] = useState([])
+  const [results,setResults] = useState([]);
+
   return (
     <Router>
-    <ResultsContext.Provider value={{savedResults,setSavedResults}}>
+    <ResultsContext.Provider value={{results,setResults}}>
       <Route exact path="/" component={Upload}></Route>
       <Route exact path="/results" component={Results}></Route>
     </ResultsContext.Provider>

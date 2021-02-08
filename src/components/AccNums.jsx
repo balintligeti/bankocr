@@ -1,6 +1,12 @@
-import {React, useEffect, useState} from 'react'
+import {React, useEffect, useState, useContext} from 'react'
 import Modulus from './Modulus'
+import { ResultsContext } from './contexts/ResultsContext'
+
 export default function AccNums(props) {
+    
+     const context = useContext(ResultsContext);
+
+
 
     const codes = {
         '0': ' _ ' +
@@ -35,15 +41,22 @@ export default function AccNums(props) {
              ' _|'
       }
 
-      const parseInputText = (file) => {
-        console.log(file)
-        const returnText = file;
+      const [num, setNum] = useState();
+
+      useEffect(() => {
+          context.setResults([...context.results,num])
+     }, [num])
+
+      const parseInputText = () => {
+        const returnText = props.text;
 
         const lenOfStr = returnText.substr(0, returnText.indexOf('\n')).length; 
         const inputText = returnText.split("\n").join("");
         const list = [inputText.slice(0,lenOfStr),inputText.slice(lenOfStr,lenOfStr * 2),inputText.slice(lenOfStr * 2,lenOfStr * 3)]
       
         let inputTextNumber = ""; 
+
+     
         
         for (let i = 0; i < lenOfStr; i += 3) {
            inputTextNumber += Object.keys(codes).find(key => 
@@ -53,14 +66,14 @@ export default function AccNums(props) {
             list[2][i] + list[2][i+1] + list[2][i+2]);
         }
         const inputTextNumWithQuestioner = inputTextNumber.split("undefined").join("?");
-        return inputTextNumWithQuestioner;
-        
+        return setNum(inputTextNumWithQuestioner);
       }
 
     return (
         <div>
-            <p>{parseInputText(props.text)}</p>
-            <Modulus stringInt={parseInputText(props.text)} />
+             <button onClick={parseInputText}>Validate account number</button>
+            <p>{num}</p>
+            <Modulus stringInt="123"/>
         </div>
     )
 }

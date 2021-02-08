@@ -1,5 +1,5 @@
 import ReactFileReader from 'react-file-reader';
-
+import { Link } from "react-router-dom";
 import {React, useState} from 'react'
 import AccNums from './AccNums';
 
@@ -23,6 +23,8 @@ export default function Upload() {
         return (<div>
           <input type="file" onChange={(e) => showFile(e)} />
           <AccNums text={file} />
+          <Link to="/Results">Results</Link>
+
         </div>
         )
       
