@@ -41,7 +41,7 @@ export default function AccNums(props) {
              ' _|'
       }
 
-      const [num, setNum] = useState();
+      const [num, setNum] = useState('');
 
       useEffect(() => {
           context.setResults([...context.results,num])
@@ -73,7 +73,7 @@ export default function AccNums(props) {
         <div>
              <button onClick={parseInputText}>Validate account number</button>
             <p>{num}</p>
-            <Modulus stringInt="123"/>
+            <Modulus stringInt={num}/>
         </div>
     )
 }
