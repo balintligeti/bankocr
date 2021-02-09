@@ -6,7 +6,6 @@ export default function Modulus(props) {
         let counter = 1;
         let addNums = 0
         reversed.split("").map((character) => {
-            console.log(character)
             addNums += counter * parseInt(character);
             counter++;
         })
