@@ -38,7 +38,26 @@ export default function AccNums(props) {
              '|_|',
         '9': ' _ ' +
              '|_|' +
-             ' _|'
+             ' _|',
+        'A': ' _ ' +
+             '|_|' +
+             '| |',
+        'B': ' _ ' +
+             '|_\\' +
+             '|_/',
+        'C': ' _ ' +
+             '|  ' +
+             '|_ ',
+        'D': ' _ ' +
+             '| \\' +
+             '|_/',
+        'E': ' _ ' +
+             '|_ ' +
+             '|_ ',
+        'F': ' _ ' +
+             '|_ ' +
+             '|  ',
+        
       }
 
       const [num, setNum] = useState('');
@@ -48,6 +67,7 @@ export default function AccNums(props) {
      }, [num])
 
       const parseInputText = () => {
+        console.log(codes['D'])
         const returnText = props.text;
 
         const lenOfStr = returnText.substr(0, returnText.indexOf('\n')).length; 
@@ -73,7 +93,8 @@ export default function AccNums(props) {
         <div>
              <button onClick={parseInputText}>Validate account number</button>
             <p>{num}</p>
-            <Modulus stringInt={num}/>
+            <div>{num !== "" ? <Modulus stringInt={num}/> : <p></p>}</div>
+            
         </div>
     )
 }
