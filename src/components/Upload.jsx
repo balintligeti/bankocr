@@ -12,7 +12,6 @@ export default function Upload() {
         const reader = new FileReader()
         reader.onload = async (e) => { 
           const text = (e.target.result)
-          console.log(text)
           setFile(text)
         };
         reader.readAsText(e.target.files[0])
