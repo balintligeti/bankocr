@@ -44,7 +44,7 @@ export default function AccNums(props) {
       const [num, setNum] = useState('');
 
       useEffect(() => {
-          context.setResults([...context.results,num])
+           if (num !== '') context.setResults([...context.results,num])
      }, [num])
 
       const parseInputText = () => {

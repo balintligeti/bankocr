@@ -25,6 +25,8 @@ export default function Results(props) {
         return 'ERR'
     }
 
+
+
     return (
         <div>
             {context.results.length > 0 ? <p>{context.results.map((item, index) => (
